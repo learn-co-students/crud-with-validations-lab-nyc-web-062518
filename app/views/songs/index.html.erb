@@ -1,0 +1,26 @@
+<img src="https://blog.beeminder.com/wp-content/uploads/2018/03/all-the-things.png" height="400" width="400">
+<h1>ALL OF THE SONGS!</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Song Title</th>
+      <th>Artist</th>
+      <th>Release Year</th>
+      <th>Genre</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @songs.each do |song| %>
+    <tr>
+      <td><%= link_to song.title, song_path(song) %></td>
+      <td><%= song.artist_name %></td>
+      <td><%= song.release_year %></td>
+      <td><%= song.genre %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p><%= link_to "Add a New Song", new_song_path %></p>
