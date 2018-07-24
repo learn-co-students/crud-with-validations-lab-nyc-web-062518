@@ -5,4 +5,6 @@
 <p><%= link_to "Edit This Song", edit_song_path %></p>
 <p><%= link_to "Back to ALL OF THE SONGS!", songs_path %></p>
 <br>
-<%= link_to "Delete This Song", @song.destroy, method: :delete, data: { confirm: "Really?" } %>
+<%= form_tag song_path(@song), method: :delete do %>
+<%= submit_tag "Delete Song" %>
+<% end %>

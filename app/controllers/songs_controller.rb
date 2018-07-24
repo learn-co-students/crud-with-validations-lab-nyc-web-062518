@@ -8,19 +8,6 @@ class SongsController < ApplicationController
     @song = Song.find_by(id: params[:id])
   end
 
-  def edit
-    @song = Song.find_by(id: params[:id])
-  end
-
-  def update
-    @song = Song.find_by(id: params[:id])
-    if @song.update(song_params)
-      redirect_to song_path(@song)
-    else
-      render :edit
-    end
-  end
-
   def new
     @song = Song.new
   end
@@ -32,6 +19,19 @@ class SongsController < ApplicationController
       redirect_to song_path(@song)
     else
       render :new
+    end
+  end
+
+  def edit
+    @song = Song.find_by(id: params[:id])
+  end
+
+  def update
+    @song = Song.find_by(id: params[:id])
+    if @song.update(song_params)
+      redirect_to song_path(@song)
+    else
+      render :edit
     end
   end
 
